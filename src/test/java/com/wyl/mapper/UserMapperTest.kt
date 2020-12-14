@@ -2,14 +2,7 @@ package com.wyl.mapper
 
 import com.base.utils.getSqlSession
 import com.wyl.domain.User
-import org.apache.ibatis.io.Resources
-import org.apache.ibatis.session.SqlSession
-import org.apache.ibatis.session.SqlSessionFactoryBuilder
-import org.junit.After
-import org.junit.Before
 import org.junit.Test
-import sun.swing.MenuItemLayoutHelper
-import java.io.InputStream
 import kotlin.math.max
 
 class UserMapperTest {
@@ -94,8 +87,11 @@ class UserMapperTest {
                 mutableMapOf(
                     "start" to max(curPage - 1, 0) * size,
                     "size" to size,
+                    "name" to "d",
+                    "address" to "广"
                 )
             ).forEach(::println)
+
         }
     }
 

@@ -4,7 +4,7 @@ import com.base.utils.getSqlSession
 import com.wyl.domain.PageBean
 import com.wyl.domain.User
 import com.wyl.mapper.UserMapper
-import sun.swing.MenuItemLayoutHelper.max
+import kotlin.math.max
 import kotlin.math.min
 
 /**

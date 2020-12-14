@@ -13,18 +13,19 @@
         SELECT * FROM user where id=#{id}
     </select>
     <select id="findUserByLimit" parameterType="map" resultType="user">
-        SELECT * FROM user limit #{start},#{size}
-        <!--<where>
-            <if test="#{name}!=null and #{name}!=''">
-                and `name` like #{name}
+        SELECT * FROM user
+        <where>
+            <if test="name!=null and name!=''">
+                and `name` like "%"#{name}"%"
             </if>
-            <if test="#{address}!=null and #{address}!=''">
-                and address like #{address}
+            <if test="address!=null and address!=''">
+                and address like "%"#{address}"%"
             </if>
-            <if test="#{email}!=null and #{email}!=''">
-                and email like #{email}
+            <if test="email!=null and email!=''">
+                and email like "%"#{email}"%"
             </if>
-        </where>-->
+        </where>
+        limit #{start},#{size}
     </select>
     <insert id="addUser" parameterType="user">
         insert into user(name, gender, age, address,qq,email) values(#{name},#{gender},#{age},#{address},#{qq},#{email})
