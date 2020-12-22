@@ -17,10 +17,8 @@ class FindUserByPageServlet : HttpServlet() {
 
         req.apply {
             // 获取分页信息的参数
-            var curPage = getParameter("currentPage")?.toIntOrNull()
-            if (curPage == null) curPage = 1
-            var size = getParameter("pageSize")?.toIntOrNull()
-            if (size == null) size = 5
+            val curPage = getParameter("currentPage")?.toIntOrNull() ?: 1
+            val size = getParameter("pageSize")?.toIntOrNull() ?: 5
             // 获取条件查询的参数
             val pageBean = userService.findUserByPage(curPage, size, parameterMap)
             setAttribute("pageBean", pageBean)
